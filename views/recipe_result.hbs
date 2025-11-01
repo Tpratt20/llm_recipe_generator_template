@@ -1,3 +1,29 @@
 <h1>Recipe Results</h1>
 
-{{!-- TODO create HTML and display the recipe information --}}
+{{!-- various html elements that use hbs templates to fill them in. Uses templates from userIngredients and and from the recipeJSON object --}}
+
+<p>You entered "{{ userIngredients }}" </p>
+
+<p>Here's a recipe using those ingredients</p>
+
+<h2>{{ recipeJSON.recipeName }}</h2>
+<br>
+<h3>Description</h3>
+
+<p> {{ recipeJSON.description }} </p>
+
+<h3>Ingredients</h3>
+{{!-- unordered lists that use hbs functions to automatically create li elements to match the length of recipeJSON properties --}}
+<ul>
+    {{#each recipeJSON.ingredients}}
+        <li>{{ this }}</li>
+    {{/each}}
+</ul>
+
+<h3>Instructions</h3>
+
+<ul>
+    {{#each recipeJSON.instructions}}
+        <li>{{ this }}</li>
+    {{/each}}
+</ul>
